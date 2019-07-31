@@ -1,0 +1,43 @@
+{
+  "name": "blingblaw",
+  "version": "3.5.0",
+  "author": "Danustan Alphonza",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danzilla/blingBlaw"
+  },
+  "server-port": "5000",
+  "scripts": {
+    "test": "node ./bin/www",
+    "start": "nodemon ./bin/www --ignore client"
+  },
+  "dependencies": {
+    "async": "^2.6.2",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "csvjson": "^5.1.0",
+    "debug": "~2.6.9",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-flash": "0.0.2",
+    "express-graphql": "^0.9.0",
+    "express-pg-session": "^1.1.0",
+    "express-session": "^1.15.6",
+    "fs": "0.0.1-security",
+    "graphql": "^14.4.2",
+    "group-array": "^0.3.4",
+    "http-errors": "~1.6.2",
+    "lodash": "^4.17.14",
+    "middleware": "^1.0.0",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "node-fetch": "^2.3.0",
+    "nodemon": "^1.18.4",
+    "pg": "^7.8.1",
+    "pg-pool": "^2.0.6",
+    "uuid": "^3.3.2",
+    "uuid-token-generator": "^1.0.0"
+  }
+}

@@ -7,7 +7,7 @@ services:
   # PostgreSQL - postgres_db
   postgres_db:
     build:
-      context: ../graphQL
+      context: ./
       dockerfile: ./server/postgresql.Dockerfile
     ports:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}

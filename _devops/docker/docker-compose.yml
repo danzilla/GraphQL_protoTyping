@@ -1,0 +1,24 @@
+# Development 
+# PostgreSQL + PGAdmin 
+
+# Docker-compose
+version: '3'
+# Services
+services:
+  # PostgreSQL - postgres_db
+  postgres_db:
+    build: 
+      context: ./
+      dockerfile: ./postgresql.Dockerfile
+    ports:
+      - "5432:5432"
+  # PGAdmin
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "dan.alphonza@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "1035621"
+    ports:
+      - "5050:80"
+    links:
+      - postgres_db

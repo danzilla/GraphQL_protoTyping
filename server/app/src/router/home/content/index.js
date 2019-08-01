@@ -1,9 +1,10 @@
-const initiateDB = function (req, res, next) {
+// Home Route
+const Home = function (req, res, next) {
 	let pageMesage = "asdasdasdasd!!";
 	console.log("\n" + pageMesage + "\n");
 	res.send({ pageMesage: pageMesage });
 }
-module.exports = initiateDB;
+module.exports = Home;
 
 
 

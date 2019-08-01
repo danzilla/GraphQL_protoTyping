@@ -1,11 +1,10 @@
-/* Firstrun - Router
- * Keep it minimal
- */
+// Home - Router
+
 const express = require('express');
 const router = express.Router();
 
 // initiate Data base /firstrun
-const initiateDB = require('./content');
-router.route('/').get(initiateDB);
+const Home = require('./content');
+router.route('/').get(Home);
 
 module.exports = router;

@@ -1,6 +1,11 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "client-react",
+  "version": "1.0.0",
+  "author": "Danustan Alphonza",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danzilla/blingBlaw"
+  },
   "private": true,
   "dependencies": {
     "react": "^16.8.6",

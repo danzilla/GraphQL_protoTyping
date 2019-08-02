@@ -1,7 +1,6 @@
 // Databases - labels
 // App Database configuration - Labels
 // App Primary_DB Labels
-
 /*
  * database_Name - blingblaw_assets
  * │
@@ -15,7 +14,7 @@
  * │   │   Table - account_record - account_id
  * │   │   Table - account_One - account_id
  */
-
+// Database labels
 const database_labels = {
     db_name: "blingblaw_assets",
     schema_name: "users",
@@ -24,13 +23,16 @@ const database_labels = {
     table_users_fannyPack: "user_fannyPackz",
     table_fannyPack_category: "account_category",
     table_fannyPack_type: "account_type",
-    table_fannyPack_record: "account_record"
+    table_fannyPack_record: "account_record",
+    table_fannyPack_account: ""
 }
+// database connection strings
 const database_connection = {
     user: "danzilla",
     pwd: "1035621",
     port: "5432",
-    defaultDB: "public"
+    defaultDB: "public",
+    blingblawDB: database_labels.db_name
 }
 
 // If Docker - SET (PROD) - db_config.database_host_dev_prod.prod
@@ -41,7 +43,6 @@ const database_host_dev_prod = {
     prod: "postgres_db"
 }
 const db_Host = database_host_dev_prod.dev;
-
 // Pg connection for | BlingBlaw and public database
 // Databases settings and configurations
 const database = {
@@ -49,7 +50,7 @@ const database = {
     blingblaw: {
         user: database_connection.user,
         password: database_connection.pwd,
-        database: database_labels.db_name,
+        database: database_connection.blingblawDB,
         port: database_connection.port,
         host: db_Host,
         max: 10, // max number of clients in the pool
@@ -66,7 +67,6 @@ const database = {
         idleTimeoutMillis: 30000
     }
 }
-
     // PostGres connection
     const { Pool } = require('pg');
     // App - blingBlaw
@@ -83,7 +83,7 @@ const database = {
         console.error("Unexpected error on idle client", err)
         process.exit(-1)
     });
-
+// Export
 const app_config = {
     database_labels: database_labels,
     database_connection: database_connection,

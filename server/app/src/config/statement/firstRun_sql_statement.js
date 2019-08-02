@@ -17,7 +17,7 @@ const kill_connection = {
     title: "kill_connection",
     sql: `SELECT *, pg_terminate_backend(pid)
             FROM pg_stat_activity 
-            WHERE pid <> pg_backend_pid();`
+            WHERE pid <> pg_backend_pid() AND datname=${database_labels.db_name};`
 }
 const drop_app_Database = {
     title: "drop_app_Database",
@@ -28,49 +28,9 @@ const create_app_Database = {
     sql: `CREATE DATABASE ${database_labels.db_name};`
 }
 const create_app_Schema = {
-    title: "create_app_Schema",
+    title: "create_schema_fannyPack",
     sql: `CREATE SCHEMA IF NOT EXISTS ${database_labels.schema_name}  
-                         AUTHORIZATION ${database_connection.user};`
-}
-const create_app_Table_UserAuth = {
-    title: "create_app_Table_UserAuth",
-    sql: `CREATE TABLE IF NOT EXISTS
-        ${database_labels.schema_name}.${database_labels.table_users_auth}
-        (
-            user_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
-            user_serial VARCHAR(36) UNIQUE NOT NULL,
-            user_name VARCHAR(12) UNIQUE NOT NULL,
-            user_pwd_salt VARCHAR(254) NOT NULL,
-            user_pwd_hash VARCHAR(254) NOT NULL,
-            user_auth_token VARCHAR(36)
-        );`
-}
-const create_app_Table_UserDetails = {
-    title: "create_app_Table_UserDetails",
-    sql: `CREATE TABLE IF NOT EXISTS 
-        ${database_labels.schema_name}.${database_labels.table_users_details}
-        (
-            user_details_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
-            user_full_name VARCHAR(254),
-            user_email VARCHAR(254),
-            user_created TIMESTAMP,
-            user_modify TIMESTAMP,
-            user_lastLogged TIMESTAMP,
-            user_auth_serial VARCHAR(36) UNIQUE NOT NULL
-        );`
-}
-const create_app_Table_fannyPackz = {
-    title: "create_app_Table_fannyPackz",
-    sql: `CREATE TABLE IF NOT EXISTS 
-        ${database_labels.schema_name}.${database_labels.table_users_fannyPack}
-        (
-            fannyPack_serial VARCHAR(36) UNIQUE NOT NULL,
-            fannyPack_name VARCHAR(254),
-            fannyPack_created TIMESTAMP,
-            fannyPack_lastmodify TIMESTAMP,
-            fannyPack_lastUpdated TIMESTAMP,
-            fannyPack_owner_serial VARCHAR(36) NOT NULL
-        );`
+        AUTHORIZATION ${database_connection.user};`
 }
 
 // Export 
@@ -78,9 +38,6 @@ const statements = {
     kill_connection: kill_connection,
     drop_app_Database: drop_app_Database,
     create_app_Database: create_app_Database,
-    create_app_Schema: create_app_Schema,
-    create_app_Table_UserAuth: create_app_Table_UserAuth,
-    create_app_Table_UserDetails: create_app_Table_UserDetails,
-    create_app_Table_fannyPackz: create_app_Table_fannyPackz
+    create_app_Schema: create_app_Schema
 }
 module.exports = statements;

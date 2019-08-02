@@ -1,4 +1,4 @@
-// App - GraphQL - Danzilla
+// App - BlingBlaw - Danzilla
 const express = require('express');
 const app = express();
 app.use(express.json());
@@ -18,39 +18,40 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-// REST - AUTH and set_in_localStorage
+// REST
+// Authentication and FirstRun
 const home = require('./src/router/home');
-app.use('/', home); // Home
+app.use('/auth', home); // Home
 const firstrun = require('./src/router/firstrun');
 app.use('/firstrun', firstrun); // firstrun
 // End of REST Router
 
-
-// GraphQL
-// Express-graphql
-const graphqlHTTP = require('express-graphql');
-const { buildSchema } = require('graphql');
+// GraphQL 
+// Data driven - #Eeeeee
 // 1
 // GraphQL - Schema
 // Construct a schema, using GraphQL schema language
 const schemaBling = require('./src/graphql/schema');
-const schema = buildSchema(schemaBling);
 // 2
 // GraphQL - RootValue
 // The root provides a resolver function for each API endpoint
 // Resolver == Actions? with Function()
 const rootValueBling = require('./src/graphql/rootValue')
-// 3
+// 3 -  GraphQL
 // Wicked
 // Fire GraphQL
-app.use('/graphql', bodyParser.json(), graphqlHTTP({
-  schema: schema,
-  rootValue: rootValueBling,
-  graphiql: true,
+// Express-graphql
+const graphqlHTTP = require('express-graphql');
+app.use('/graphql', 
+  bodyParser.json(), 
+  graphqlHTTP({
+    schema: schemaBling,
+    rootValue: rootValueBling,
+    graphiql: true,
 }));
 console.log(process.env.npm_package_name  + '- Running a GraphQL API server at localhost:5000/graphql');
 // End of GraphQL
 
-// Export
+
+// Export Blazzze
 module.exports = app;

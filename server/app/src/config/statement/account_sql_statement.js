@@ -34,7 +34,7 @@ const create_accountTransaction_table = {
   title: "create_accountTransaction_table",
   sql: function (userData) {
       return `CREATE TABLE IF NOT EXISTS
-        ${userData.fannyPackName}.accounTransaction
+        fannypack_${userData.fannyPack_serial}.accounTransaction
         (
           transaction_Id SERIAL PRIMARY KEY NOT NULL UNIQUE,
           transaction_serial VARCHAR(36) NOT NULL UNIQUE,

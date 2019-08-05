@@ -19,11 +19,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // REST
-// Authentication and FirstRun
-const home = require('./src/router/home');
-app.use('/auth', home); // Home
+
+// FirstRun
 const firstrun = require('./src/router/firstrun');
-app.use('/firstrun', firstrun); // firstrun
+app.use('/firstrun', firstrun);
+// FannyPack
+const fannyPack = require('./src/router/fannyPack');
+app.use('/fannypack', fannyPack);
+// User
+const user = require('./src/router/user');
+app.use('/user', user);
+
 // End of REST Router
 
 // GraphQL 
@@ -51,7 +57,6 @@ app.use('/graphql',
 }));
 console.log(process.env.npm_package_name  + '- Running a GraphQL API server at localhost:5000/graphql');
 // End of GraphQL
-
 
 // Export Blazzze
 module.exports = app;

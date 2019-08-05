@@ -23,11 +23,11 @@ fanny_serialFanny.category - Table
 const {database_labels, database_connection} = require('../app.config');
 // Magic
 // Table_account_type
-const create_accounType_Table = {
+const create_accounType_table = {
   title: "create_Table_UserAuth",
   sql: function (userData) {
       return `CREATE TABLE IF NOT EXISTS
-        ${userData.fannyPackName}.accountType
+        fannypack_${userData.fannyPack_serial}.accountType
         (
           account_type_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
           account_type_name VARCHAR(254) UNIQUE NOT NULL,
@@ -38,6 +38,6 @@ const create_accounType_Table = {
 }
 // Export 
 const statements = {
-  create_accounType_Table: create_accounType_Table
+  create_accounType_table: create_accounType_table
 }
 module.exports = statements;

@@ -44,15 +44,19 @@ const create_Table_fannyPackz = {
 const create_schema_user_fannyPack = {
   title: "create_schema_user_fannyPack",
   sql: function (userData) {
-      return `CREATE SCHEMA IF NOT EXISTS fannyPack_${userData.fannyPackSerial} 
+      return `CREATE SCHEMA IF NOT EXISTS fannyPack_${userData.fannyPack_serial} 
               AUTHORIZATION ${database_connection.user};`;
   }
 }
 // Require - user_serial = userData.fannyPackSerial
 const add_newFannyPack_to_fannypacks_table = {
     title: "add_newFannyPack_to_fannypacks_table",
-    sql: `INSERT INTO ${database_labels.schema_name}.${database_labels.table_users_details}
-        (user_created, user_auth_serial) VALUES($1, $2) RETURNING *;`
+    sql: function (userData) {
+      return `INSERT INTO ${database_labels.schema_name}.${database_labels.table_users_fannyPack} 
+          (fannyPack_serial, fannyPack_name, fannyPack_created, fannyPack_lastUpdated, fannyPack_owner_serial) 
+          VALUES
+          ('${userData.fannyPack_serial}', '${userData.fannyPack_name}', '${userData.fannyPack_created}', '${userData.fannyPack_lastUpdated}', '${userData.fannyPack_owner_serial}');`;
+  }
 }  
 
 

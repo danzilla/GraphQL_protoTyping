@@ -1,0 +1,72 @@
+Income
+  Paycheck
+  Investment
+  Sell
+
+Savings
+  Emergency Saving
+  Car Saving
+  Travel Saving
+  YOLO Saving
+
+Entertainment
+  Events
+  Movies
+  Music
+  Bar
+  Games
+
+Food and Groceries
+  Groceries
+  Coffee shops
+  Fast Food
+  Restaurants
+  Alcohol
+  Household supplies
+
+Utilities
+  Water
+  Internet
+  Electricity
+  Phone
+  Recycling
+  Rent
+  Repairs
+
+Auto and Transport
+  Gas
+  Parking
+  Car Service
+  Car Payment
+  Car Insurance
+  Car Tickets
+  Transport
+
+Bank
+  Withdrawl
+  Transfer
+  ATM Fee
+  Bank Fee
+  Late Fee
+  Service Fee
+
+Personal Care
+  Hair
+  Gym
+  Laundry
+  Sports
+  healthcare
+
+Education
+  Tuition
+  Student Loan
+  Supplies
+
+Shopping
+  Hobbies
+  Clothing
+  Accessories
+  Electronics
+
+Misc
+ Uncategorized

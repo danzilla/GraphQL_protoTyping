@@ -41,54 +41,12 @@ const create_app_Schema = {
     sql: `CREATE SCHEMA IF NOT EXISTS ${database_labels.schema_name}  
         AUTHORIZATION ${database_connection.user};`
 }
-const create_Table_UserAuth = {
-    title: "create_Table_UserAuth",
-    sql: `CREATE TABLE IF NOT EXISTS
-        ${database_labels.schema_name}.${database_labels.table_users_auth}
-        (
-            user_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
-            user_serial VARCHAR(36) UNIQUE NOT NULL,
-            user_name VARCHAR(12) UNIQUE NOT NULL,
-            user_pwd_salt VARCHAR(254) NOT NULL,
-            user_pwd_hash VARCHAR(254) NOT NULL,
-            user_auth_token VARCHAR(36)
-        );`
-}
-const create_Table_UserDetails = {
-    title: "create_Table_UserDetails",
-    sql: `CREATE TABLE IF NOT EXISTS 
-        ${database_labels.schema_name}.${database_labels.table_users_details}
-        (
-            user_details_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
-            user_full_name VARCHAR(254),
-            user_email VARCHAR(254),
-            user_created TIMESTAMP,
-            user_modify TIMESTAMP,
-            user_lastLogged TIMESTAMP,
-            user_auth_serial VARCHAR(36) UNIQUE NOT NULL
-        );`
-}
-const create_Table_fannyPackz = {
-    title: "create_Table_fannyPackz",
-    sql: `CREATE TABLE IF NOT EXISTS 
-        ${database_labels.schema_name}.${database_labels.table_users_fannyPack}
-        (
-            fannyPack_serial VARCHAR(36) UNIQUE NOT NULL,
-            fannyPack_name VARCHAR(254),
-            fannyPack_created TIMESTAMP,
-            fannyPack_lastmodify TIMESTAMP,
-            fannyPack_lastUpdated TIMESTAMP,
-            fannyPack_owner_serial VARCHAR(36) NOT NULL
-        );`
-}
+
 // Export 
 const statements = {
     kill_connection: kill_connection,
     drop_app_Database: drop_app_Database,
     create_app_Database: create_app_Database,
-    create_app_Schema: create_app_Schema,
-    create_Table_fannyPackz: create_Table_UserAuth,
-    create_Table_UserAuth: create_Table_UserDetails,
-    create_Table_UserDetails: create_Table_fannyPackz
+    create_app_Schema: create_app_Schema
 }
 module.exports = statements;

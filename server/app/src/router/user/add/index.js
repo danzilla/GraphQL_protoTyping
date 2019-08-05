@@ -1,6 +1,5 @@
-// REST - Router - First Run and Initial_Database
-/* First Run
-
+// REST - Router - UserAdd
+/* 
    Database - blingblaw
    └───Schema - users
     | │ Table - user_auth
@@ -12,13 +11,13 @@
     │ │ Table - account_record
     │ │ Table - account_account_serial
      
-	kill_connection
-	drop_Database
-	create_Database
-    create_Schema
-	create_Table_UserAuth
-	create_Table_UserDetails
-	create_Table_fannyPackz
+	add_user_to_userAuth
+	add_user_to_userDetails
+	create_schema_user_fannyPack
+	create_table_account_category
+	create_table_account_records
+	create_table_account_types
+	add_newFannyPack_to_fannypacks_table
 */
 
 const async = require('async');
@@ -26,13 +25,13 @@ const { using_blingblaw,
 		using_postgresDefault } = require('../../../config/util/process_sql_query');
 const { kill_connection, 
 		drop_app_Database,
-		create_app_Database,
-		create_app_Schema } = require('../../../config/statement/firstRun_sql_statement');
-const { create_Table_UserAuth,
-		create_Table_UserDetails } = require('../../../config/statement/user_sql_statement');
-const { create_Table_fannyPackz } = require('../../../config/statement/fannyPack_sql_statement');
-// initiate Database build Brrrr
-const initialDatabase = function (req, res, next) {
+		create_Table_fannyPackz } = require('../../../config/statement/firstRun_sql_statement');
+
+
+
+
+// addUser
+const addUser = function (req, res, next) {
 	// Collect Recults
 	const FirstRunResults = [];
 	// Async Waterfall
@@ -67,7 +66,7 @@ const initialDatabase = function (req, res, next) {
         res.send({ pageMesage: FirstRunResults });
     });
 }
-module.exports = initialDatabase;
+module.exports = addUser;
 
 
 

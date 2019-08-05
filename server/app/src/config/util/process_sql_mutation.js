@@ -1,8 +1,8 @@
-// Process query
+// Process query mutatation 
 const { blingblaw, postgresDefault } = require('../app.config');
-// Using - process_sql_blingblaw ('blingBlaw')
-// Export - process_sql(callback, sql_statement, Results)
-function process_sql_blingblaw(callback, sql_statement, Results) {
+// Using - mutate_sql_blingblaw ('blingBlaw')
+// Export - mutate_sql(callback, sql_statement, Results)
+function mutate_sql_blingblaw(callback, sql_statement, Results) {
     // PageMessage
     let pageMessage = { title:"Query_sql", message: "", checked: "", result: "" };
     // Using default Database "blingblaw"
@@ -17,7 +17,7 @@ function process_sql_blingblaw(callback, sql_statement, Results) {
             callback(null, pageMessage);
         } else if (client){
             // Connect to DB using default Database 
-            client.query(sql_statement.sql, function (clientErr, clientResult) {
+            client.query(sql_statement.sql, userData, function (clientErr, clientResult) {
                 if (!clientErr && clientResult) { // If no errors and Results == Good
                     pageMessage.title = sql_statement.title;
                     pageMessage.checked = "checked";
@@ -38,8 +38,8 @@ function process_sql_blingblaw(callback, sql_statement, Results) {
 };
 
 // Process SQL using - postgresDefault ('public')
-// Export - process_sql(callback, sql_statement, Results)
-function process_sql_postgresDefault(callback, sql_statement, Results) {
+// Export - mutate_sql(callback, sql_statement, Results)
+function mutate_sql_postgresDefault(callback, sql_statement, Results) {
     // PageMessage
     let pageMessage = { title:"Query_sql", message: "", checked: "", result: "" };
     // Using default Database "public"
@@ -74,8 +74,8 @@ function process_sql_postgresDefault(callback, sql_statement, Results) {
     });
 };
 // Export 
-const process_sql = {
-    using_blingblaw: process_sql_blingblaw,
-    using_postgresDefault: process_sql_postgresDefault
+const mutate_sql = {
+    using_blingblaw: mutate_sql_blingblaw,
+    using_postgresDefault: mutate_sql_postgresDefault
 }
-module.exports = process_sql;
+module.exports = mutate_sql;

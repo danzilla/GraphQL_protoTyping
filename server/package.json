@@ -28,7 +28,7 @@
     "graphql": "^14.4.2",
     "group-array": "^0.3.4",
     "http-errors": "~1.6.2",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.19",
     "middleware": "^1.0.0",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",

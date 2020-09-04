@@ -9,7 +9,7 @@
     "csv": "^5.1.1",
     "csvtojson": "^2.0.8",
     "materialize-css": "^1.0.0",
-    "papaparse": "^4.6.3",
+    "papaparse": "^5.2.0",
     "react": "^16.8.5",
     "react-chartjs-2": "^2.7.6",
     "react-csv-reader": "^1.2.2",
